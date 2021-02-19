@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\RestaurantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('restaurants', [RestaurantController::class, 'index'])->name('restaurant.index');
+    Route::get('restaurants/new', [RestaurantController::class, 'new'])->name('restaurant.new');
+    Route::post('restaurants/store', [RestaurantController::class, 'store'])->name('restaurant.store');
 });
