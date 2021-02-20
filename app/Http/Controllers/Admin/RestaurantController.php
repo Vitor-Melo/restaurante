@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RestaurantRequest;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 
@@ -19,7 +20,7 @@ class RestaurantController extends Controller
         return view('admin.restaurants.store');
     }
 
-    public function store(Request $req)
+    public function store(RestaurantRequest $req)
     {
         $restaurantData = $req->all();
 
