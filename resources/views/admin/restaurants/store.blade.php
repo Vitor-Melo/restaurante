@@ -3,17 +3,17 @@
   <form action="{{route('restaurant.store')}}" method="post">
     {{csrf_field()}}
     <label for="name">Nome do Restaurante</label><br />
-    <input type="text" name="name" id="name"><br />
+    <input type="text" name="name" id="name" value="{{old('name')}}"><br />
     @if ($errors->has('name'))
         {{$errors->first('name')}}
     @endif
     <label for="address">Endereço</label><br />
-    <input type="text" name="address" id="address"><br />
+    <input type="text" name="address" id="address" value="{{old('address')}}"><br />
     @if ($errors->has('address'))
         {{$errors->first('address')}}
     @endif
     <label for="description">Descreva o restaurante</label><br />
-    <textarea name="description" id="description" cols="30" rows="5"></textarea><br />
+    <textarea name="description" id="description" cols="30" rows="5" >{{old('description')}}</textarea><br />
     @if ($errors->has('address'))
         {{$errors->first('address')}}
     @endif
